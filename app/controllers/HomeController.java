@@ -61,6 +61,12 @@ public class HomeController extends Controller {
         return redirect(controllers.routes.HomeController.products());
     }
 
+    public Result deleteProduct(Long id){
+        Product.find.ref(id).delete();
+        flash("success", "Product has been deleted");
+        return redirect(routes.HomeController.products());
+    }
+
 }
 
 
